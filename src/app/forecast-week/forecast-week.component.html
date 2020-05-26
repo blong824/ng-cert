@@ -1,0 +1,15 @@
+<h4>Template for 5-day forecast page:</h4>
+<div *ngIf="data$ | async as data" class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">5-day forecast for {{data.city.name}}</h3>
+
+    </div>
+    <ul class="list-group">
+      <ng-container *ngFor="let day of data.list; let i = index">
+        <app-forecast-daily *ngIf=" i % 8 === 0" [data]="day"></app-forecast-daily>
+      </ng-container>
+    </ul>
+  </div>
+  <button (click)="back()" class="btn btn-success" tabindex="0" id="mainPageBtn">&lt; Back to main page</button>
+</div>

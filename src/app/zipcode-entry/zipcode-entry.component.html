@@ -1,0 +1,22 @@
+<div class="well">
+  <form [formGroup]="form">
+    <h2>Enter a zipcode:</h2>
+    <input formControlName="zip" class="form-control" placeholder="Zipcode" type="text" id="addLocation" #zipInput>
+
+    <div *ngIf="form.get('zip').invalid && (form.get('zip').dirty || form.get('zip').touched)" class="alert alert-danger">
+
+      <div *ngIf="form.get('zip').errors.required">
+        Zip code is required.
+      </div>
+      <div *ngIf="form.get('zip').errors.pattern">
+        Zip code must be a 5 digit number.
+      </div>
+
+    </div>
+
+    <br>
+    <button class="btn btn-primary" id="addLocationBtn" (click)="zipAddedEvent(zipInput.value)">
+      Add location
+    </button>
+  </form>
+</div>

@@ -1,0 +1,3 @@
+<app-zipcode-entry (zipCodeAdded)="addZipCode($event)"></app-zipcode-entry>
+
+<app-forecast-today *ngFor="let zip of zipCodes" [zip]="zip" (removeZipEvent)="removeZipCode($event)"></app-forecast-today>

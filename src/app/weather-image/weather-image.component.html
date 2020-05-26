@@ -1,0 +1,6 @@
+<div *ngIf="weather">
+  <img *ngIf="weather.main === 'Clear'" [style.width]="width" [style.height]="height" src="https://www.angulartraining.com/images/weather/sun.png">
+  <img *ngIf="weather.main === 'Snow'" [style.width]="width" [style.height]="height" src="https://www.angulartraining.com/images/weather/snow.png">
+  <img *ngIf="weather.main === 'Rain'" [style.width]="width" [style.height]="height" src="https://www.angulartraining.com/images/weather/rain.png">
+  <img *ngIf="weather.main === 'Clouds'" [style.width]="width" [style.height]="height" src="https://www.angulartraining.com/images/weather/clouds.png">
+</div>

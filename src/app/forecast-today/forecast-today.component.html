@@ -1,0 +1,22 @@
+<div *ngIf="data$ | async as data" class="well flex">
+  <div *ngIf="data.err">
+    <h3>Invalid Zip Code ({{zip}})</h3>
+  </div>
+  <div *ngIf="!data.err">
+    <h3>{{data.name}} ({{zip}})</h3>
+    <h4>Current conditions: {{data.weather[0].main}}</h4>
+    <h4>Temperatures today:</h4>
+    <p>
+      Current {{data.main.temp}} - Max {{data.main.temp_max}} - Min {{data.main.temp_min}}
+    </p>
+    <p>
+      <a [routerLink]="['/forecast', zip]">Show 5-day forecast for {{data.name}}</a>
+    </p>
+  </div>
+  <div>
+    <span (click)="removeZip(zip)" class="close">×</span>
+    <div *ngIf="!data.err">
+      <app-weather-image [weather]="data.weather[0]"></app-weather-image>
+    </div>
+  </div>
+</div>
